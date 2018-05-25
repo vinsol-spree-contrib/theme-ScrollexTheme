@@ -12,13 +12,12 @@
             <h4><%= Spree.t(:shipping_address) %> <%= link_to "(#{Spree.t(:edit)})", checkout_state_path(:address) unless order.completed? %></h4>
             <%= render 'spree/shared/address', address: order.ship_address %>
           </div>
-          <div class="clearfix"></div> 
+          <div class="clearfix"></div>
           <div class="col-md-12 pd-15 bill_payment_col" data-hook="order-shipment">
             <h4><%= Spree.t(:shipments) %> <%= link_to "(#{Spree.t(:edit)})", checkout_state_path(:delivery) unless order.completed? %></h4>
             <div class="delivery">
               <% order.shipments.each do |shipment| %>
                 <div>
-                  <i class='fa fa-truck'></i>
                   <%= Spree.t(:shipment_details, stock_location: shipment.stock_location.name, shipping_method: shipment.selected_shipping_rate.name) %>
                 </div>
               <% end %>
@@ -32,9 +31,7 @@
         <div class="col-md-12  pd-15"  data-hook="order-payment">
           <h4><%= Spree.t(:payment_information) %> <%= link_to "(#{Spree.t(:edit)})", checkout_state_path(:payment) unless order.completed? %></h4>
           <div class="payment-info">
-            <% order.payments.valid.each do |payment| %>
-              <%= render payment %><br/>
-            <% end %>
+            <%= render collection: order.payments.valid, partial: 'spree/shared/payment' %>
           </div>
         </div>
       <% end %>
