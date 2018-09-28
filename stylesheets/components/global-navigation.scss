@@ -193,7 +193,7 @@
       left: 0;
       height: 4px;
       width: 100%;
-      background-color: #1a1a1a;
+      background-color: $bg-yellow;
     }
     .hamb-top{
       top: 5px;
@@ -268,4 +268,8 @@
   bottom: 0;
   background-color: rgba(250,250,250,.8);
   z-index: 9;
+}
+
+body.body-fixed{
+  overflow:hidden;
 }
