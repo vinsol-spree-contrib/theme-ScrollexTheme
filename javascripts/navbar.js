@@ -14,11 +14,13 @@ $(document).ready(function () {
         trigger.removeClass('is-open');
         trigger.addClass('is-closed');
         isClosed = false;
+        $('body').removeClass('body-fixed');
       } else {   
         overlay.show();
         trigger.removeClass('is-closed');
         trigger.addClass('is-open');
         isClosed = true;
+        $('body').addClass('body-fixed');
       }
   }
   
